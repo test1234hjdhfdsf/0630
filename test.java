@@ -1,7 +1,9 @@
 class Test {
-  public void main(String[] args) {
-    String token = "djfkdsn3447090refdfds";
-    String password = "test123";
-    System.out.println(token);
-  }
+    public static void main(String[] args) {
+        String script = System.getenv("SCRIPTNAME");
+        if (script != null) {
+            // BAD: The script to be executed is controlled by the user.
+            Runtime.getRuntime().exec(script);
+        }
+    }
 }
